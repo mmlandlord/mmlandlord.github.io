@@ -93,22 +93,26 @@ h1 {
 }
 
 /* Edit Form Styling */
-.edit-form input {
-  width: 80px;
+#editWaterUsage, #editElectricityUsage {
+  width: 70px !important; /* Reduced width for edit fields */
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
 }
 
-.edit-form input[type="date"] {
-  width: 120px; /* Wider input for date */
+#editDate {
+  width: 120px !important; /* Reduced width for edit fields */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
 }
 
 /* Button Styling */
 .action-button {
   padding: 5px 10px;
-  margin: 0 5px;
+  margin: 2px 2px 2px 2px;
   border: none;
   border-radius: 4px;
   font-size: 14px;
