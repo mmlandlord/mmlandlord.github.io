@@ -14,6 +14,11 @@ function displaySelectedRoom() {
 
 // Function to save usage records to localStorage
 function saveUsageRecords(room, records) {
+    records.sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        return dateA - dateB
+    });
     localStorage.setItem(`usageRecords_${room}`, JSON.stringify(records));
 }
 
