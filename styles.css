@@ -123,3 +123,34 @@ h1 {
 .export-button:hover {
   background-color: #138496;
 }
+
+/* Room List Styling */
+.room-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Increased spacing between buttons */
+}
+
+.room-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #fff; /* White background */
+  color: #333; /* Dark text for contrast */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.room-button:hover {
+  background-color: #f9f9f9; /* Slightly darker white on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.room-button:active {
+  background-color: #f1f1f1; /* Even darker white on click */
+  transform: translateY(0); /* Reset lift effect */
+}

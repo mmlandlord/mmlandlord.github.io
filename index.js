@@ -15,6 +15,14 @@ function renderRooms() {
   const roomsContainer = document.getElementById('roomsContainer');
   roomsContainer.innerHTML = ''; // Clear existing content
 
+  // Sort rooms by floor and then by room number
+  rooms.sort((a, b) => {
+    if (a.floor === b.floor) {
+      return a.number.localeCompare(b.number, undefined, { numeric: true, sensitivity: 'base' });
+    }
+    return a.floor - b.floor;
+  });
+
   // Group rooms by floor
   const floors = {};
   rooms.forEach(room => {
@@ -37,27 +45,16 @@ function renderRooms() {
     roomList.className = 'room-list';
 
     floors[floor].forEach(room => {
-      const roomItem = document.createElement('div');
-      roomItem.className = 'room-item';
+      const roomButton = document.createElement('button');
+      roomButton.className = 'room-button';
+      roomButton.textContent = `Room ${room.floor}${room.number}`;
 
-      const radioInput = document.createElement('input');
-      radioInput.type = 'radio';
-      radioInput.id = `room${room.floor}${room.number}`;
-      radioInput.name = 'room';
-      radioInput.value = `Room ${room.floor}${room.number}`;
-
-      const label = document.createElement('label');
-      label.htmlFor = `room${room.floor}${room.number}`;
-      label.textContent = `Room ${room.floor}${room.number}`;
-
-      // Add event listener to navigate to usage.html when a room is selected
-      radioInput.addEventListener('change', () => {
+      // Add event listener to navigate to usage.html with the selected room
+      roomButton.addEventListener('click', () => {
         window.location.href = `usage/usage.html?room=${room.floor}${room.number}`;
       });
 
-      roomItem.appendChild(radioInput);
-      roomItem.appendChild(label);
-      roomList.appendChild(roomItem);
+      roomList.appendChild(roomButton);
     });
 
     floorGroup.appendChild(roomList);
