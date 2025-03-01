@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Room Usage</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Room Usage</h1>
+
+    <!-- Selected Room Display -->
+    <div id="selectedRoom">
+      <p><strong>Selected Room:</strong> <span id="roomName"></span></p>
+    </div>
+
+    <!-- Add Usage Form -->
+    <div class="add-usage-form">
+      <h2>Add Usage Record</h2>
+      <input type="number" id="waterUsage" placeholder="Water Usage (m³)" min="0" step="0.1">
+      <input type="number" id="electricityUsage" placeholder="Electricity Usage (kWh)" min="0" step="0.1">
+      <button id="addUsageButton">Add Record</button>
+    </div>
+
+    <!-- Usage Records Table -->
+    <div class="usage-table">
+      <h2>Usage Records</h2>
+      <table id="usageRecords">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Water Usage (m³)</th>
+            <th>Electricity Usage (kWh)</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Records will be dynamically populated here -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Back Button -->
+    <button class="back-button" onclick="window.location.href='../index.html'">Back to Room Selection</button>
+  </div>
+
+  <script src="usage.js"></script>
+</body>
+</html>
