@@ -94,12 +94,19 @@ function exportAllRoomsToCSV() {
     });
   });
 
-  // Sort allRoomsData by room number
+  // Sort allRoomsData by room number and date
   allRoomsData.sort((a, b) => {
     // Extract numeric part of the room name for sorting
     const roomNumberA = parseInt(a.room.match(/\d+/)[0], 10);
     const roomNumberB = parseInt(b.room.match(/\d+/)[0], 10);
-    return roomNumberA - roomNumberB;
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    const roomdiff = roomNumberA - roomNumberB;
+    if (roomdiff != 0) {
+      return roomdiff;
+    } else {
+      return dateA - dateB
+    }
   });
 
   // Initialize CSV content with headers
